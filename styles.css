@@ -1,4 +1,16 @@
 button
 {
-    background-color:bisque
+    background-color:bisque;
+    border:1px solid black;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 12px;
+    border-radius: 10px
+}
+
+#resources
+{
+    width: 100%;
+    align-items: center;
+    margin:auto;
+    text-align:center;
 }

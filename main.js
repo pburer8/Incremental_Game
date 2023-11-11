@@ -46,6 +46,6 @@ function learnNat()
         natDisplay()
         data.learn_nat += 1
         data.learn_nat_cost *= 2
-        document.getElementById("learn_nat").innerHTML = "Learn how to count better (Cost: " + data.learn_nat_cost + ")"
+        document.getElementById("learn_nat").innerHTML = "Learn how to count better<br>(Cost: " + data.learn_nat_cost + ")"
     }
 }
