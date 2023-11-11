@@ -5,16 +5,19 @@
         <title>The Math Student Incremental</title>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
-        <div id="resources">
-            <p id="nat">&#8469; = {0}</p>
-            <p id="real">&#8477;</p>
-        </div>
-        <div>
-            <button onclick = "incNat()">Count one further</button>
-            <br>
-            <button id="learn_nat" onclick = "learnNat()">Learn how to count better<br>(Cost: 10)</button>
-        </div>
-    </body>
+    <div class="tabs">
+        <button class = "tablinks" onclick = "openTab(event, 'Natural Numbers')">Natural Numbers</button>
+        <button class = "tablinks" onclick = "openTab(event, 'Integers')">Integers</button>
+    </div>
+    <div id = "Natural Numbers", class = "tabcontent">
+        <p id ="nat">&#8469; = {0}</p>
+        <button onclick = "incNat()">Count one further</button>
+        <br>
+        <button id="learn_nat" onclick = "learnNat()">Learn how to count better<br>(Cost: 10)</button>
+    </div>
+    <div id = "Integers", class = "tabcontent">
+        <p>Hello World!</p>
+        <p id = "int">&#8484;</p>
+    </div>
     <script src="main.js" charset="utf-8" type="text/javascript"></script>
 </html>
