@@ -2,7 +2,10 @@ var data =
 {
     nat_amt: 0,
     learn_nat: 1,
-    learn_nat_cost: 10
+    learn_nat_cost: 10,
+    auto_nat: false,
+    fast_nat: 1000,
+    fast_nat_cost: 100
 }
 /*
 var saveGameLoop = window.setInterval(function() 
@@ -15,6 +18,14 @@ if (savegame !== null) {
   data = savegame
 }
 */
+
+var natLoop = window.setInterval(function() {
+    if (data.auto_nat)
+    {
+        incNat()
+    }
+}, 1000)
+
 function incNat()
 {
     data.nat_amt += data.learn_nat
@@ -47,6 +58,38 @@ function learnNat()
         data.learn_nat += 1
         data.learn_nat_cost *= 2
         document.getElementById("learn_nat").innerHTML = "Learn how to count better<br>(Cost: " + data.learn_nat_cost + ")"
+    }
+}
+
+function autoNat()
+{
+    if (data.nat_amt >= 100)
+    {
+        data.nat_amt -= 100
+        natDisplay()
+        data.auto_nat = true
+
+        document.getElementById("auto_nat").innerHTML = "Count automatically<br>Purchased"
+    }
+}
+
+function fastNat()
+{
+    if (data.nat_amt >= data.fast_nat_cost)
+    {
+        data.nat_amt -= data.fast_nat_cost
+        natDisplay()
+        data.fast_nat *= 0.9
+        data.fast_nat_cost *= 10
+        clearInterval(natLoop)
+        natLoop = window.setInterval(
+            function() {
+                if (data.auto_nat)
+                {
+                    incNat()
+                }
+            }, data.fast_nat)
+        document.getElementById("fast_nat").innerHTML = "Count faster<br>(Cost: " + data.fast_nat_cost + ")"
     }
 }
 
